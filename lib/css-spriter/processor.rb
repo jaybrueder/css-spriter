@@ -4,7 +4,7 @@ module CssSpriter
       @options = opts
       @processors = dir_processors
       @css_builder = StylesheetBuilder.new(@options[:source])
-      @css_builder.output_file(@options[:css_file] || @options[:source] + "/sprite.css")
+      @css_builder.output_file(@options[:css_file] || @options[:source] + "/sprite.css.scss")
     end
 
     def write

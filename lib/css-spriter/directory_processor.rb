@@ -1,13 +1,10 @@
 module CssSpriter
   class DirectoryProcessor
 
-    #Changed this to fit my private needs
+    #Changed this to fit my private needs - SCSS
     DEFAULT_TEMPLATE = <<-EOF
-    .<name>_<image_name> {
+    @mixin <name>_<image_name>() {
       background: transparent url(<image_loc>) <offset>px 0px no-repeat;
-      width:<width>px;
-      height:<height>px;
-      text-indent:-9999px;
     }
 
     EOF
@@ -17,7 +14,7 @@ module CssSpriter
       @dir = dir
       @sprite = Sprite.new
       @tracker = MtimeTracker.new(@dir,
-                                  :exclude => ['sprite.css', 'fragment.css', 'sprite.png'])
+                                  :exclude => ['sprite.css.scss', 'fragment.css.scss', 'sprite.png'])
     end
 
     def images
@@ -47,7 +44,7 @@ module CssSpriter
     end
 
     def css_file
-      @dir + "/fragment.css"
+      @dir + "/fragment.css.scss"
     end
 
     def dir_name
@@ -73,7 +70,7 @@ module CssSpriter
     end
 
     def template_file
-      @dir + "/template.css"
+      @dir + "/template.css.scss"
     end
 
     def template

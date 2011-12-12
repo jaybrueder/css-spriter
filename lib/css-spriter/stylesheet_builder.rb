@@ -2,7 +2,7 @@ module CssSpriter
   class StylesheetBuilder
     def initialize(dir)
       @dir = dir
-      @output_file = @dir + "/sprite.css"
+      @output_file = @dir + "/sprite.css.scss"
     end
 
     def output_file(file)
@@ -10,7 +10,7 @@ module CssSpriter
     end
 
     def css
-      @css ||= Dir.glob(@dir + "/**/fragment.css").inject("") {|acc, f| acc + File.read(f)}
+      @css ||= Dir.glob(@dir + "/**/fragment.css.scss").inject("") {|acc, f| acc + File.read(f)}
     end
 
     def write
